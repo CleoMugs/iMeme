@@ -11,7 +11,23 @@
       </div>
     </div>
     {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+
+    <h2>COMMENTS</h2>
+    <hr>
+    {% for comment in comments %}
+      <div class="comments" style="padding: 10px;">
+        <p>
+          <a href="#">{{ comment.name }}</a> |
+          <span class="text-muted font-weight-normal">
+            {{ comment.created_on }}
+          </span>
+        </p>
+        {{ comment.body | linebreaks }}
+      </div>
+    {% endfor %}
   </div>
 </div>
+
+
 
 {% endblock content %}
