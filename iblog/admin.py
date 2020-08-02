@@ -5,17 +5,14 @@ from .models import *
 
 # Register your models here.
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
 	list_display = ('title', 'author', 'slug', 'status', 'created_on')
 	list_filter = ("status",)
 	search_fields = ['title', 'content']
 	prepopulated_fields = {'slug':('title',)}
-	
-
-class PostAdmin(SummernoteModelAdmin):
 	summernote_fields = ('content')
 
-	
+
 class CommentAdmin(admin.ModelAdmin):
 	list_display = ('name', 'body', 'post', 'created_on', 'active')
 	list_filter = ('active', 'created_on')
