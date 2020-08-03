@@ -22,6 +22,14 @@ class CommentAdmin(admin.ModelAdmin):
 	def approve_comments(self, request, queryset):
 		queryset.update(active=True)
 
+class ProfileBlogger(admin.ModelAdmin):
+	list_display = ('user', 'profile_pic', 'location', 'occupation', 'date_created')
+	#list_filter = ('active', 'created_on')
+	search_fields = ('user',)
+	
+
+
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Profile, ProfileBlogger)
