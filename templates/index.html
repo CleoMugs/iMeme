@@ -39,12 +39,11 @@
             {% for post in post_list %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <div class="post-thumbnail">
-                        <a href="#">
-                            <img class="rounded-circle profile-thumbnail" class="img-fluid"  alt="Responsive Image" 
-                            width="20%" height="20%" src="{{ post.author.profile.profile_pic.url }}">
-                        </a>
-                    </div>
+                    <a href="#">
+                        <img class="rounded-circle profile-thumbnail" class="img-fluid"  alt="Responsive Image" 
+                        width="20%" height="20%" src="{{ post.author.profile.profile_pic.url }}">
+                    </a>
+                    
                     <h2 class="card-title">{{ post.title }}</h2>
                     <p class="card-text text-muted h6"><a href="#">@{{ post.author }}</a> | {{ post.created_on }} </p>
                     <p class="card-text">{{ post.content|slice:":100" }}</p>
