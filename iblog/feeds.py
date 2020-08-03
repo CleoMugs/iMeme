@@ -23,7 +23,6 @@ class LatestPostsFeed(Feed):
 
 from django.utils.feedgenerator import Atom1Feed
 
-
 class AtomSiteNewsFeed(LatestPostsFeed):
 	feed_type = Atom1Feed
 	subtitle = LatestPostsFeed.description
