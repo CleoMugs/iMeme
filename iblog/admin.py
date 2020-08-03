@@ -28,8 +28,6 @@ class ProfileBlogger(admin.ModelAdmin):
 	search_fields = ('user',)
 	
 
-
-
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Profile, ProfileBlogger)
