@@ -4,7 +4,7 @@ from .models import Post
 from django.urls import reverse
 
 
-class LatestPostFeed(Feed):
+class LatestPostsFeed(Feed):
 	title = "My blog"
 	link = ""
 	description = "New posts of my blog."
@@ -17,3 +17,16 @@ class LatestPostFeed(Feed):
 
 	def item_description(self, item):
 		return truncatewords(item.content, 30)
+
+
+
+
+from django.utils.feedgenerator import Atom1Feed
+
+
+class AtomSiteNewsFeed(LatestPostsFeed):
+	feed_type = Atom1Feed
+	subtitle = LatestPostsFeed.description
+
+
+

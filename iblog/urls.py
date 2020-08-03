@@ -1,7 +1,7 @@
 from . import views
 from django.urls import path
 from django.contrib.sitemaps.views import sitemap
-from iblog.sitemaps import PostSitemapds 
+from iblog.sitemaps import PostSitemap 
 from .feeds import LatestPostsFeed
 
 sitemaps = {
