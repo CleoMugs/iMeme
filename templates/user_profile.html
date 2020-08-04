@@ -1,0 +1,65 @@
+{% extends 'iblog/base.html' %}
+{% load static %}
+
+
+{% block content %}
+	<div class="content-section">
+		{% for message in messages %}
+			<p><center>{{ message }}</center></p>
+		{% endfor %}
+		<div class="media">
+			<img class="rounded-circle account-img" src="{{ request.user.profile.profile_pic.url }}">
+			<!--div class="media-body">
+				<h2 class="account-heading">{{ user.username }}</h2>
+				<a href=""><p class="text-secondary">{{ user.email }}</p></a>
+			</div-->
+		</div>
+		<div class="card card-body">
+				<h4 class="border-bottom mb-2">Profile Bio</h4>
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+					</div>
+					<h3>{{ user.username }}</h3>
+				</div>
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+						<b>{{ user_form.email.label }}:</b>
+					</div>
+					<a href="">{{ user.email }} </a>
+				</div>
+
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+						
+					</div>
+					<b>{{ user.first_name }} {{ user.last_name }}</b>
+				</div>
+
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+						<b>Joined:</b>
+					</div>
+					{{ user.profile.date_created }}
+				</div>
+
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+						<b>Location:</b>
+					</div>
+					<a href="">{{ user.profile.location }}</a>
+				</div>
+
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+						<b>Occupation:</b>
+					</div>
+					{{ user.profile.occupation }}
+				</div>
+				
+				
+				<div class="form-group">
+					<a class="btn btn-outline-info mt-3" href="{% url 'accounts-editprofile' %}">Edit Profile</a>
+				</div>
+		</div>
+	</div>
+{% endblock content %}
