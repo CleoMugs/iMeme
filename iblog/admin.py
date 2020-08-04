@@ -23,7 +23,7 @@ class CommentAdmin(admin.ModelAdmin):
 		queryset.update(active=True)
 
 class ProfileBlogger(admin.ModelAdmin):
-	list_display = ('user', 'profile_pic', 'location', 'occupation', 'date_created')
+	list_display = ('user', 'real_name', 'profile_pic', 'location', 'occupation', 'date_created')
 	#list_filter = ('active', 'created_on')
 	search_fields = ('user',)
 	
