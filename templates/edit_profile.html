@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block content %}
+	<div class="card card-body">
+		<h3>Edit Your Profile</h3>
+		<form method="POST"  action="" enctype="multipart/form-data">
+			{% csrf_token %}
+
+		    {{ user_form.first_name|as_crispy_field }}
+		    {{ user_form.last_name|as_crispy_field }}
+			{{ editpro_form|crispy }}
+
+			<div class="form-group">
+				<button class="btn btn-outline-primary" type="submit">Update</button>
+			</div>
+		</form>
+  	</div>
+{% endblock content %}
