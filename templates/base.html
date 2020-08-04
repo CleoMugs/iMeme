@@ -12,6 +12,7 @@
 
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
 
     <body>
@@ -26,15 +27,35 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="{% url 'login_user' %}">Login</a>
-                        </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="{% url 'register_user' %}">Register</a>
-                        </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="{% url 'logout_user' %}">Logout</a>
-                        </li>
+                        {% if request.user.is_authenticated %}
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-secondary dropdown-toggle"  data-toggle="dropdown">
+                                    Account
+                                </button>
+                                <div class="dropdown-menu">
+                                    <span class="dropdown-item-text font-weight-bold"><i class="fa fa-user"></i>Hi, {{request.user}}</span>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item font-weight-bold" href="{% url 'logout_user' %}">Log Out</a>
+
+                                </div>
+                            </div>
+
+                            <!--li class="nav-item text-black mt-2 mr-2">
+                                Hi, {{request.user}}
+                            </li>
+                            <li class="nav-item text-black">
+                                <a class="nav-link text-black font-weight-bold" href="{% url 'logout_user' %}">Logout</a>
+                            </li-->
+
+                        {% else %}
+                            <li class="nav-item text-black">
+                                <a class="nav-link text-black font-weight-bold" href="{% url 'login_user' %}">Login</a>
+                            </li>
+                            <li class="nav-item text-black">
+                                <a class="nav-link text-black font-weight-bold" href="{% url 'register_user' %}">Register</a>
+                            </li>
+                        {% endif %}
+                        
                     </ul>
                 </div>
             </div>
