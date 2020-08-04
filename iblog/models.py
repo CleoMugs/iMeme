@@ -50,6 +50,7 @@ class Comment(models.Model):
 
 class Profile(models.Model):
 	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+	real_name =  models.CharField(max_length=200, null=True, blank=True)
 	profile_pic = models.ImageField(default="default.png", upload_to='images')
 	location =  models.CharField(max_length=200, null=True, blank=True)
 	occupation =  models.CharField(max_length=200, null=True, blank=True)
