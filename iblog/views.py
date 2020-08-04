@@ -1,8 +1,55 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, UserProfileForm, EditProfileForm, CreateUserForm
 from django.shortcuts import render, get_object_or_404
+
+from django.contrib import messages
+
+from django.contrib.auth import authenticate, login, logout
+
+def register(request):
+	template_name = 'register.html'
+	form = CreateUserForm()
+
+	if request.method == 'POST':
+		form = CreateUserForm(request.POST)
+		if form.is_valid():
+			form.save()
+			username = form.cleaned_data.get('username')
+			messages.success(request, f'Account created for {username}!')
+			return redirect('login_user')
+
+	context = {'form': form}
+	return render(request, template_name, context)
+
+
+
+def login_user(request):
+	template_name = 'login.html'
+
+	if request.method == 'POST':
+		username = request.POST.get('username')
+		password = request.POST.get('password')
+
+		user = authenticate(request, username=username, password=password)
+
+		if user is not None:
+			login(request, user)
+			return redirect('home')
+
+		else:
+			messages.info(request, f'Username OR Password is incorrect')
+			return render(request, 'login.html')
+
+	context = {}
+	return render(request, template_name, context)
+
+
+def logout_user(request):
+	logout(request)
+	return redirect('login_user')
 
 
 class PostList(generic.ListView):
@@ -19,6 +66,48 @@ class CommentList(generic.ListView):
 class PostDetail(generic.DetailView):
 	model = Post
 	template_name = 'post_detail.html'
+
+
+def user_profile(request):
+	template_name = 'user_profile.html'
+	
+	profile_form = UserProfileForm(request.POST)
+	'''
+	if request.method == 'POST':
+		profile_form = UserProfileForm(request.POST, instance=request.user)
+		
+		if profile_form.is_valid():
+			profile_form.save()
+			messages.success(request, f'Your account has been updated !')
+			return redirect('accounts-user')
+	
+	'''
+	context = {'profile_form':profile_form}
+	
+	return render(request, template_name)
+
+def edit_profile(request):
+	template_name = 'edit_profile.html'
+	edit_profile_form = EditProfileForm(request.POST)
+
+	if request.method == 'POST':
+		edit_profile_form = EditProfileForm(request.POST, 
+									   request.FILES, 
+									   instance=request.user.profile
+		)
+
+		if edit_profile_form.is_valid(): 
+			edit_profile_form.save()
+			messages.success(request, f'Your account has been updated!')
+			print('updated')
+			return redirect('user_profile')
+
+	else:
+		edit_profile_form = EditProfileForm(instance=request.user.profile)
+
+	context = {'edit_profile_form': edit_profile_form}
+	return render(request, template_name, context)
+
 
 
 def post_detail(request, slug):
