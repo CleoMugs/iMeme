@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 
 from .decorators import unauthenticated_user
 
+@unauthenticated_user
 def register(request):
 	template_name = 'register.html'
 	form = CreateUserForm()
