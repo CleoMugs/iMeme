@@ -11,6 +11,14 @@ class CreateUserForm(UserCreationForm):
 
 
 
+class LoginUserForm(forms.ModelForm):
+	class Meta:
+		model = User
+		fields = ['username', 'password']
+
+
+
+
 class CommentForm(forms.ModelForm):
 	class Meta:
 		model = Comment

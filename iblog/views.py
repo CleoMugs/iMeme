@@ -92,7 +92,7 @@ def user_profile(request):
 	return render(request, template_name)
 
 
-@unauthenticated_user
+#@unauthenticated_user
 def edit_profile(request):
 	template_name = 'edit_profile.html'
 	edit_profile_form = EditProfileForm(request.POST)
