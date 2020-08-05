@@ -8,6 +8,9 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
+from .decorators import unauthenticated_user
 
 def register(request):
 	template_name = 'register.html'
@@ -25,7 +28,7 @@ def register(request):
 	return render(request, template_name, context)
 
 
-
+@unauthenticated_user
 def login_user(request):
 	template_name = 'login.html'
 
