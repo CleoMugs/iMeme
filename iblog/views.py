@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
 from .models import Post, Comment
-from .forms import CommentForm, UserProfileForm, EditProfileForm, CreateUserForm
+from .forms import (CommentForm, UserProfileForm, 
+					EditProfileForm, CreateUserForm,
+					UserLoginForm
+	)
+
 from django.shortcuts import render, get_object_or_404
 
 from django.contrib import messages
@@ -32,23 +36,30 @@ def register(request):
 @unauthenticated_user
 def login_user(request):
 	template_name = 'login.html'
+	form = UserLoginForm()
 
 	next = request.GET.get('next') #testing next functionality
 	if request.method == 'POST':
-		username = request.POST.get('username')
-		password = request.POST.get('password')
+		form = UserLoginForm(request.POST)
 
-		user = authenticate(request, username=username, password=password)
+		if form.is_valid():
+			username = form.cleaned_data.get('username')
+			password = form.cleaned_data.get('password')
 
-		if user is not None:
-			login(request, user)
-			return redirect('home')
+		#username = request.POST.get('username')
+		#password = request.POST.get('password')
 
-		else:
-			messages.info(request, f'Username OR Password is incorrect')
-			return render(request, 'login.html')
+			user = authenticate(request, username=username, password=password)
 
-	context = {}
+			if user is not None:
+				login(request, user)
+				return redirect('home')
+
+			else:
+				messages.info(request, f'Username OR Password is incorrect')
+				return render(request, 'login.html')
+
+	context = {'form':form}
 	return render(request, template_name, context)
 
 
