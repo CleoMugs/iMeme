@@ -36,9 +36,32 @@ def register(request):
 @unauthenticated_user
 def login_user(request):
 	template_name = 'login.html'
-	form = UserLoginForm()
 
 	next = request.GET.get('next') #testing next functionality
+	if request.method == 'POST':
+		username = request.POST.get('username')
+		password = request.POST.get('password')
+
+		user = authenticate(request, username=username, password=password)
+
+		if user is not None:
+			login(request, user)
+			return redirect('home')
+
+		else:
+			messages.info(request, f'Username OR Password is incorrect')
+			return render(request, 'login.html')
+
+	context = {}
+	return render(request, template_name, context)
+
+'''
+@unauthenticated_user
+def login_user(request):
+	template_name = 'login.html'
+	form = UserLoginForm()
+
+	#next = request.GET.get('next') #testing next functionality
 	if request.method == 'POST':
 		form = UserLoginForm(request.POST)
 
@@ -51,16 +74,22 @@ def login_user(request):
 
 			user = authenticate(request, username=username, password=password)
 
+			#if next:
+			#	return next
+
 			if user is not None:
 				login(request, user)
 				return redirect('home')
 
-			else:
-				messages.info(request, f'Username OR Password is incorrect')
-				return render(request, 'login.html')
+		else:
+			messages.info(request, f'Username OR Password is incorrect')
+			
+			return render(request, 'login.html')
 
 	context = {'form':form}
 	return render(request, template_name, context)
+
+'''
 
 
 def logout_user(request):
