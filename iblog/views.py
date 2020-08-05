@@ -33,6 +33,7 @@ def register(request):
 def login_user(request):
 	template_name = 'login.html'
 
+	next = request.GET.get('next') #testing next functionality
 	if request.method == 'POST':
 		username = request.POST.get('username')
 		password = request.POST.get('password')
@@ -90,6 +91,8 @@ def user_profile(request):
 	
 	return render(request, template_name)
 
+
+@unauthenticated_user
 def edit_profile(request):
 	template_name = 'edit_profile.html'
 	edit_profile_form = EditProfileForm(request.POST)

@@ -20,7 +20,7 @@ urlpatterns =[
     path('logout/', views.logout_user, name='logout_user'),
 
 	path('user/', views.user_profile, name='user_profile'),
-	path('edit-profile/', views.edit_profile, name='edit_profile'),
+	path('edit_profile/', views.edit_profile, name='edit_profile'),
 
 	path('<slug:slug>/', views.post_detail, name='post_detail'),
 
