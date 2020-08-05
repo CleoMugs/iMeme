@@ -4,16 +4,18 @@
 
 
 {% block content %}
-	<div class="card card-body">
-		<h3>Edit Your Profile</h3>
-		<form method="POST"  action="" enctype="multipart/form-data">
-			{% csrf_token %}
+	<div class="content-section">
+		<div class="card card-body">
+			<h3>Edit Your Profile</h3>
+			<form method="POST"  action="" enctype="multipart/form-data">
+				{% csrf_token %}
 
-			{{ edit_profile_form|crispy }}
+				{{ edit_profile_form|crispy }}
 
-			<div class="form-group">
-				<button class="btn btn-outline-primary" type="submit">Update</button>
-			</div>
-		</form>
-  	</div>
+				<div class="form-group">
+					<button class="btn btn-outline-primary" type="submit">Update</button>
+				</div>
+			</form>
+	  	</div>
+	  </div>
 {% endblock content %}
