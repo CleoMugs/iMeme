@@ -49,10 +49,11 @@
 					{{ user.profile.occupation }}
 				</div>
 				
-				
-				<div class="form-group">
-					<a class="btn btn-outline-info mt-3 p-2" href="{% url 'edit_profile' %}">Edit Profile</a>
-				</div>
+				{% if request.user.is_authenticated %}
+					<div class="form-group">
+						<a class="btn btn-outline-info mt-3 p-2" href="{% url 'edit_profile' %}">Edit Profile</a>
+					</div>
+				{% endif %}
 		</div>
 	</div>
 {% endblock content %}
