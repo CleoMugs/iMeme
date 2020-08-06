@@ -114,7 +114,7 @@ class PostDetail(generic.DetailView):
 def user_profile(request):
 	template_name = 'user_profile.html'
 	
-	profile_form = UserProfileForm(request.POST)
+	profile_form = UserProfileForm(instance=request.user.profile)
 	'''
 	if request.method == 'POST':
 		profile_form = UserProfileForm(request.POST, instance=request.user)
@@ -133,7 +133,7 @@ def user_profile(request):
 #@unauthenticated_user
 def edit_profile(request):
 	template_name = 'edit_profile.html'
-	edit_profile_form = EditProfileForm(request.POST)
+	edit_profile_form = EditProfileForm(instance=request.user.profile)
 
 	if request.method == 'POST':
 		edit_profile_form = EditProfileForm(request.POST, 
