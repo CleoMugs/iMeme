@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6e54f1c88f2a48309b641a05efe0da1862f73cdcb0b1a156b294c8a4a8c9e9f1"
+            "sha256": "dff576768734ea83467436e7195a5a6a20c7e093b593dd0b315628fb79ebbfc7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -24,13 +24,20 @@
             "markers": "python_version >= '3.5'",
             "version": "==3.2.10"
         },
+        "confusable-homoglyphs": {
+            "hashes": [
+                "sha256:3b4a0d9fa510669498820c91a0bfc0c327568cecec90648cf3819d4a6fc6a751",
+                "sha256:e3ce611028d882b74a5faa69e3cbb5bd4dcd9f69936da6e73d33eda42c917944"
+            ],
+            "version": "==3.2.0"
+        },
         "django": {
             "hashes": [
-                "sha256:96fbe04e8ba0df289171e7f6970e0ff8b472bf4f909ed9e0e5beccbac7e1dbbe",
-                "sha256:c22b4cd8e388f8219dc121f091e53a8701f9f5bca9aa132b5254263cab516215"
+                "sha256:1a63f5bb6ff4d7c42f62a519edc2adbb37f9b78068a5a862beff858b68e3dc8b",
+                "sha256:2d390268a13c655c97e0e2ede9d117007996db692c1bb93eabebd4fb7ea7012b"
             ],
             "index": "pypi",
-            "version": "==3.0.9"
+            "version": "==3.1"
         },
         "django-crispy-forms": {
             "hashes": [
@@ -39,6 +46,10 @@
             ],
             "index": "pypi",
             "version": "==1.9.2"
+        },
+        "django-registration": {
+            "git": "https://github.com/ubernostrum/django-registration.git",
+            "ref": "40fee813ca444236da6d66f516b869fd8ebbe9cd"
         },
         "django-summernote": {
             "hashes": [

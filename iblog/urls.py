@@ -22,8 +22,6 @@ urlpatterns =[
     path('user/', views.user_profile, name='user_profile'),
 	path('edit_profile/', views.edit_profile, name='edit_profile'),
 
-	path('<slug:slug>/', views.post_detail, name='post_detail'),
-
 
     path('reset_password/', 
     	auth_views.PasswordResetView.as_view(
@@ -45,8 +43,7 @@ urlpatterns =[
     		template_name='password_reset_complete.html'), 
     	name="password_reset_complete"),
 
-	
-
+    path('<slug:slug>/', views.post_detail, name='post_detail'),
 	
 
 ]

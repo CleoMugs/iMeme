@@ -11,6 +11,7 @@ django-crispy-forms = "*"
 psycopg2 = "*"
 django-summernote = "*"
 pillow = "*"
+django-registration = {git = "https://github.com/ubernostrum/django-registration.git"}
 
 [requires]
 python_version = "3.6"
