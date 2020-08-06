@@ -10,7 +10,7 @@ class PostAdmin(SummernoteModelAdmin):
 	list_filter = ("status",)
 	search_fields = ['title', 'content']
 	prepopulated_fields = {'slug':('title',)}
-	summernote_fields = ('content')
+	summernote_fields = ('content',)
 
 
 class CommentAdmin(admin.ModelAdmin):
