@@ -1,0 +1,59 @@
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-image: url('/static/img/register.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.user_card {
+    width: 50%;
+    margin: 5rem auto;
+    padding: 10px;
+    margin-bottom: auto;
+    border-radius: 15px;
+    background: #74cfbf;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+
+}
+
+.form_container {
+	margin-top: 20px;
+}
+
+#form-title{
+	color: #fff;
+}
+.login_btn {
+	width: 100%;
+	background: #33ccff !important;
+	color: white !important;
+}
+.login_btn:focus {
+	box-shadow: none !important;
+	outline: 0px !important;
+
+}
+.login_container {
+	padding: 0 2rem;
+
+}
+.input-group-text {
+	background: #f7ba5b !important;
+	color: white !important;
+	border: 0 !important;
+	border-radius: 0.5rem 0 0 0.5rem !important;
+}
+.input_user,
+.input_pass:focus {
+	box-shadow: none !important;
+	outline: 0px !important;
+}
