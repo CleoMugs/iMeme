@@ -13,7 +13,6 @@ urlpatterns =[
 	path('', views.PostList.as_view(), name='home'),
 	path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
 	path("feed/rss", LatestPostsFeed(), name="post_feed"),
-	#path('', views.CommentList.as_view(), name='comment-count'),
 	#path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
 
 	path('register/', views.register, name='register_user'),
