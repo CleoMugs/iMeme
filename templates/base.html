@@ -41,12 +41,12 @@
                                 </div>
                             </div>
 
-                            <!--li class="nav-item text-black mt-2 mr-2">
+                            <li class="nav-item text-black mt-2 mr-2">
                                 Hi, {{request.user}}
                             </li>
                             <li class="nav-item text-black">
                                 <a class="nav-link text-black font-weight-bold" href="{% url 'logout_user' %}">Logout</a>
-                            </li-->
+                            </li>
 
                         {% else %}
                             <li class="nav-item text-black">
@@ -57,7 +57,13 @@
                             </li>
                         {% endif %}
                         
-                    </ul>
+                    </ul><!--li class="nav-item text-black mt-2 mr-2">
+                                Hi, {{request.user}}
+                            </li>
+                            <li class="nav-item text-black">
+                                <a class="nav-link text-black font-weight-bold" href="{% url 'logout_user' %}">Logout</a>
+                            </li-->
+
                 </div>
             </div>
         </nav>
