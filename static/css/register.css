@@ -9,10 +9,9 @@ html {
     background-repeat: no-repeat;
 }
 .user_card {
-    width: 50%;
-    margin: 5rem auto;
-    padding: 10px;
-    margin-bottom: auto;
+    width: 60%;
+    margin: 3rem auto;
+    padding: 5px;
     border-radius: 15px;
     background: #74cfbf;
     position: relative;
@@ -26,7 +25,7 @@ html {
 }
 
 .form_container {
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 #form-title{

@@ -23,13 +23,13 @@
                 	<h3><i class="fas fa-user-plus fa-2x"></i></h3>
                 </div>
 				<div class="d-flex justify-content-center">
-					<h2 id="form-title">Register Account</h2>	
+					<h3 id="form-title">Register Account</h3>	
 				</div>
 				<div class="d-flex justify-content-center form_container">
 
 					<form method="POST" action="">
 						{% csrf_token %}
-						<div class="input-group mb-3">
+						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
@@ -54,7 +54,7 @@
 							{{form.password2}}
 						</div>
 
-				   		<div class="d-flex justify-content-center mt-3 login_container">
+				   		<div class="d-flex justify-content-center mt-2 login_container">
 				 			<input class="btn login_btn" type="submit" value="Sign Up">
 				   		</div>
 					</form>
@@ -62,7 +62,7 @@
 				
 				{{form.errors}}
 
-				<div class="mt-4 ml-1">
+				<div class="mt-2">
 					<div class="d-flex justify-content-center links">
 						<small class="text-muted">
 						    Already Have An Account? <a href="{% url 'login_user' %}" class="ml-2">Login</a>
