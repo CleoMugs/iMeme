@@ -16,14 +16,6 @@ from django.utils.http import is_safe_url
 from django.contrib.auth.decorators import login_required
 
 from .decorators import unauthenticated_user
-
-from django.conf.urls import (handler400, handler403, handler404, 
-							  handler500
-
-)
-
-#from .urls import handler404,  handler500
-
 @unauthenticated_user
 def register(request):
 	template_name = 'register.html'
@@ -199,24 +191,6 @@ def post_detail(request, slug):
 	context = {'post':post, 'comments':comments, 'new_comment':new_comment, 'comment_form':comment_form}
 	return render(request, template_name, context)	
 
-
-#custome error pages
-'''
-def custom_bad_request_view(request, exception):
+def error_404_view(request, exception):
 	template_name = '404.html'
 	return render(request, template_name, status=404)
-
-def handler500(request):
-	template_name = '500.html'
-	return render(request, template_name, status=500)
-'''
-
-def handler404(request, *args, **argv):
-    print('Handler 404 was called!')
-    u = request.user
-    params = {
-        'user': u,
-    }
-    response = render('404.html', params)
-    response.status_code = 403
-    return response
