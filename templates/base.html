@@ -41,13 +41,6 @@
                                 </div>
                             </div>
 
-                            <li class="nav-item text-black mt-2 mr-2">
-                                Hi, {{request.user}}
-                            </li>
-                            <li class="nav-item text-black">
-                                <a class="nav-link text-black font-weight-bold" href="{% url 'logout_user' %}">Logout</a>
-                            </li>
-
                         {% else %}
                             <li class="nav-item text-black">
                                 <a class="nav-link text-black font-weight-bold" href="{% url 'login_user' %}">Login</a>
@@ -57,12 +50,7 @@
                             </li>
                         {% endif %}
                         
-                    </ul><!--li class="nav-item text-black mt-2 mr-2">
-                                Hi, {{request.user}}
-                            </li>
-                            <li class="nav-item text-black">
-                                <a class="nav-link text-black font-weight-bold" href="{% url 'logout_user' %}">Logout</a>
-                            </li-->
+                    </ul>
 
                 </div>
             </div>
