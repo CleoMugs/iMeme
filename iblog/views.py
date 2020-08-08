@@ -12,6 +12,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
 from django.contrib.auth import authenticate, login, logout
+from django.utils.http import is_safe_url
 from django.contrib.auth.decorators import login_required
 
 from .decorators import unauthenticated_user
@@ -38,11 +39,17 @@ def login_user(request):
 	template_name = 'login.html'
 
 	next = request.GET.get('next') #testing next functionality
+	#url_is_safe = is_safe_url(next, allowed_hosts, require_https=False)
+
 	if request.method == 'POST':
 		username = request.POST.get('username')
 		password = request.POST.get('password')
 
 		user = authenticate(request, username=username, password=password)
+
+		if next: #and url_is_safe:
+			login(request, user)
+			return redirect(next)
 
 		if user is not None:
 			login(request, user)
@@ -137,6 +144,7 @@ def edit_profile(request):
 	template_name = 'edit_profile.html'
 	edit_profile_form = EditProfileForm(instance=request.user.profile)
 
+	next = request.GET.get('next')
 	if request.method == 'POST':
 		edit_profile_form = EditProfileForm(request.POST, 
 									   request.FILES, 
