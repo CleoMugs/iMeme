@@ -90,7 +90,7 @@ def login_user(request):
 '''
 
 
-
+#@login_required(login_url='login_user')
 def logout_user(request):
 	logout(request)
 	return redirect('login_user')
@@ -132,6 +132,7 @@ def user_profile(request):
 
 
 #@unauthenticated_user
+@login_required(login_url='login_user')
 def edit_profile(request):
 	template_name = 'edit_profile.html'
 	edit_profile_form = EditProfileForm(instance=request.user.profile)
