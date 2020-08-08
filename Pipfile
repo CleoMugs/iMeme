@@ -13,6 +13,7 @@ django-summernote = "*"
 pillow = "*"
 django-registration = {git = "https://github.com/ubernostrum/django-registration.git"}
 django-allauth = "*"
+contrib = "*"
 
 [requires]
 python_version = "3.6"

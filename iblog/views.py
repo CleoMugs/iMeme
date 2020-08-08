@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, 
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
 from .models import Post, Comment
@@ -7,8 +7,6 @@ from .forms import (CommentForm, UserProfileForm,
 					UserLoginForm
 	)
 
-from django.shortcuts import render, get_object_or_404
-
 from django.contrib import messages
 
 from django.contrib.auth import authenticate, login, logout
@@ -16,6 +14,7 @@ from django.utils.http import is_safe_url
 from django.contrib.auth.decorators import login_required
 
 from .decorators import unauthenticated_user
+
 @unauthenticated_user
 def register(request):
 	template_name = 'register.html'
@@ -63,7 +62,6 @@ def login_user(request):
 	return render(request, template_name, context)
 
 '''
-
 @unauthenticated_user
 def login_user(request):
 	template_name = 'login.html'
@@ -107,12 +105,6 @@ class PostList(generic.ListView):
 	queryset = Post.objects.filter(status=1).order_by('-created_on')
 	template_name = 'index.html'
 	paginate_by = 2
-'''
-class CommentList(generic.ListView):
-	queryset = Comment.objects.count()
-	template_name = 'index.html'	
-
-'''
 
 class PostDetail(generic.DetailView):
 	model = Post
@@ -123,16 +115,6 @@ def user_profile(request):
 	template_name = 'user_profile.html'
 	
 	profile_form = UserProfileForm(instance=request.user.profile)
-	'''
-	if request.method == 'POST':
-		profile_form = UserProfileForm(request.POST, instance=request.user)
-		
-		if profile_form.is_valid():
-			profile_form.save()
-			messages.success(request, f'Your account has been updated !')
-			return redirect('accounts-user')
-	
-	'''
 	context = {'profile_form':profile_form}
 	
 	return render(request, template_name)
@@ -195,10 +177,12 @@ def error_404_view(request, exception):
 	template_name = '404.html'
 	return render(request, template_name, status=404)
 
+
+'''
 def error_500_view(request, exception):
 	template_name = '500.html'
 	return render(request, template_name, status=500)
-'''
+
 def custom_500(request):
 	template_name = '500.html'
 	return render(request, template_name, status=500)

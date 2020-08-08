@@ -5,7 +5,7 @@ from django.contrib.sitemaps.views import sitemap
 from iblog.sitemaps import PostSitemap 
 from .feeds import LatestPostsFeed
 
-from django.conf.urls import (handler403, handler404, handler500)
+from django.conf.urls import handler403, handler404, handler500
 
 
 sitemaps = {

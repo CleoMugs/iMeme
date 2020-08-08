@@ -1,8 +1,6 @@
-from django_summernote.admin import SummernoteModelAdmin
-
 from django.contrib import admin
 from .models import *
-
+from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
 
 class PostAdmin(SummernoteModelAdmin):
@@ -22,7 +20,7 @@ class CommentAdmin(admin.ModelAdmin):
 	def approve_comments(self, request, queryset):
 		queryset.update(active=True)
 
-class ProfileBlogger(admin.ModelAdmin):
+class ProfileAdmin(admin.ModelAdmin):
 	list_display = ('user', 'real_name', 'profile_pic', 'location', 'occupation', 'date_created')
 	#list_filter = ('active', 'created_on')
 	search_fields = ('user',)
@@ -30,4 +28,4 @@ class ProfileBlogger(admin.ModelAdmin):
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
-admin.site.register(Profile, ProfileBlogger)
+admin.site.register(Profile, ProfileAdmin)
