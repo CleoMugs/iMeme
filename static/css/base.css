@@ -31,13 +31,12 @@ body {
     padding: auto;
     border: 2px solid #dddddd;
     border-radius: 15px;
-    margin: 2rem auto;
+    margin: auto;
     width: 70%;
-    height: 70%;
        
 }
 
-#messages{
+#messages {
     background-color: rgb(255, 255, 255);
     color: #fff;
     padding: 0;

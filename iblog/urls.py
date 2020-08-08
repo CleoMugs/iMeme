@@ -1,12 +1,11 @@
-from . import views
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from django.contrib.sitemaps.views import sitemap
 from iblog.sitemaps import PostSitemap 
 from .feeds import LatestPostsFeed
 
-from django.conf.urls import handler403, handler404, handler500
-
+from django.conf.urls import (handler403, handler404, handler500)
+from . import views
 
 sitemaps = {
 	"posts": PostSitemap,

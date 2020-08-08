@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, 
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
 from .models import Post, Comment

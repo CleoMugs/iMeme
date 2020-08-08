@@ -11,7 +11,8 @@ html {
 .user_card {
     width: 60%;
     margin: 3rem auto;
-    padding: 5px;
+    padding: 10px;
+    margin-bottom: auto;
     border-radius: 15px;
     background: #74cfbf;
     position: relative;
@@ -41,6 +42,13 @@ html {
 	outline: 0px !important;
 
 }
+
+.container{
+    width: 100%;
+           
+}
+
+
 .login_container {
 	padding: 0 2rem;
 
