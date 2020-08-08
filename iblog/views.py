@@ -17,6 +17,11 @@ from django.contrib.auth.decorators import login_required
 
 from .decorators import unauthenticated_user
 
+from django.conf.urls import (handler400, handler403, handler404, 
+							  handler500
+
+)
+
 @unauthenticated_user
 def register(request):
 	template_name = 'register.html'
@@ -47,7 +52,7 @@ def login_user(request):
 
 		user = authenticate(request, username=username, password=password)
 
-		if next: #and url_is_safe:
+		if next:# and url_is_safe:
 			login(request, user)
 			return redirect(next)
 
@@ -190,3 +195,11 @@ def post_detail(request, slug):
 
 	context = {'post':post, 'comments':comments, 'new_comment':new_comment, 'comment_form':comment_form}
 	return render(request, template_name, context)	
+
+
+#custome error pages
+def handler404(request):
+	return render(request, '404.html', status=404)
+
+def handler500(request):
+	return render(request, '500.html', status=500)

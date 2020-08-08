@@ -12,6 +12,7 @@ psycopg2 = "*"
 django-summernote = "*"
 pillow = "*"
 django-registration = {git = "https://github.com/ubernostrum/django-registration.git"}
+django-allauth = "*"
 
 [requires]
 python_version = "3.6"

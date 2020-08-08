@@ -4,6 +4,9 @@ from django.contrib.auth import views as auth_views
 from django.contrib.sitemaps.views import sitemap
 from iblog.sitemaps import PostSitemap 
 from .feeds import LatestPostsFeed
+from django.conf.urls import (handler400, handler403, handler404, 
+                              handler500
+                            )
 
 sitemaps = {
 	"posts": PostSitemap,
@@ -21,6 +24,10 @@ urlpatterns =[
 
     path('user/', views.user_profile, name='user_profile'),
 	path('edit_profile/', views.edit_profile, name='edit_profile'),
+
+
+    path('handler404/', views.handler404, name='handler_404'),
+    path('handler500/', views.handler500, name='handler_500'),
 
 
     path('reset_password/', 
