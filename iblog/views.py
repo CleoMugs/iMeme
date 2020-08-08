@@ -22,6 +22,8 @@ from django.conf.urls import (handler400, handler403, handler404,
 
 )
 
+#from .urls import handler404,  handler500
+
 @unauthenticated_user
 def register(request):
 	template_name = 'register.html'
@@ -73,7 +75,8 @@ def login_user(request):
 @unauthenticated_user
 def login_user(request):
 	template_name = 'login.html'
-	form = UserLoginForm()
+	form = UserLoModuleNotFoundError: No module named 'general'
+ginForm()
 
 	if request.method == 'POST':
 		form = UserLoginForm(request.POST)
@@ -198,8 +201,22 @@ def post_detail(request, slug):
 
 
 #custome error pages
-def handler404(request):
-	return render(request, '404.html', status=404)
+'''
+def custom_bad_request_view(request, exception):
+	template_name = '404.html'
+	return render(request, template_name, status=404)
 
 def handler500(request):
-	return render(request, '500.html', status=500)
+	template_name = '500.html'
+	return render(request, template_name, status=500)
+'''
+
+def handler404(request, *args, **argv):
+    print('Handler 404 was called!')
+    u = request.user
+    params = {
+        'user': u,
+    }
+    response = render('404.html', params)
+    response.status_code = 403
+    return response

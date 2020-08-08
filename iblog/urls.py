@@ -8,9 +8,22 @@ from django.conf.urls import (handler400, handler403, handler404,
                               handler500
                             )
 
+
+from general.views.handler404 import handler404
+from general.views.handler500 import handler500
+
+
+
 sitemaps = {
 	"posts": PostSitemap,
 }
+
+
+handler400 = 'general.views.handler404.handler404'
+#handler403 = 'iblog.views.custom_permission_denied_view'
+#handler404 = 'iblog.views.custom_page_not_found_view'
+#handler500 = 'iblog.views.custom_error_view'
+
 
 urlpatterns =[
 	path('', views.PostList.as_view(), name='home'),
