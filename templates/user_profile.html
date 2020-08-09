@@ -6,7 +6,7 @@
 		<div class="media">
 			<img class="rounded-circle account-img" class="img-fluid"  alt="Responsive Image" width="15%" height="15%" src="{{ request.user.profile.profile_pic.url }}">
 		</div>
-		<div class="card card-body">
+		<div class="">
 				<h4 class="border-bottom"><b>Profile Bio</b></h4>
 				<div class="input-group">
 					<div class="input-group-append">
@@ -48,9 +48,10 @@
 					{{ user.profile.occupation }}
 				</div>
 				
+				<hr>
 				{% if request.user.is_authenticated %}
 					<div class="form-group">
-						<a class="btn btn-outline-info btn-lg mt-3" href="{% url 'edit_profile' %}">Edit Profile</a>
+						<a class="btn btn-outline-info btn-lg mt-2" href="{% url 'edit_profile' %}">Edit Profile</a>
 					</div>
 				{% endif %}
 		</div>

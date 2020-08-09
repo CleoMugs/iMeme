@@ -135,8 +135,7 @@ def edit_profile(request):
 
 		if edit_profile_form.is_valid(): 
 			edit_profile_form.save()
-			messages.success(request, f'Your account has been updated!')
-			print('updated')
+			messages.success(request, f'Success! Your account has been updated!')
 			return redirect('user_profile')
 
 	else:

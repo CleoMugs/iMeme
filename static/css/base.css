@@ -37,9 +37,9 @@ body {
 }
 
 #messages {
-    background-color: rgb(17, 71, 17);
-    color: #008000;
+    background-color: white;
+    color: rgb(17, 71, 17);;
     padding: 0;
-    margin-top: 3px;
+    margin-top: 1px;
     text-align: center;
 }
