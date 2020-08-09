@@ -22,7 +22,6 @@ class CommentAdmin(admin.ModelAdmin):
 
 class ProfileAdmin(admin.ModelAdmin):
 	list_display = ('user', 'real_name', 'profile_pic', 'location', 'occupation', 'date_created')
-	#list_filter = ('active', 'created_on')
 	search_fields = ('user',)
 	
 

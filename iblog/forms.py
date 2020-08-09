@@ -36,9 +36,3 @@ class EditProfileForm(forms.ModelForm):
 	class Meta:
 		model = Profile
 		fields = ['real_name', 'location', 'occupation', 'profile_pic']
-
-
-'''
-class CommentForm(forms.Form):
-	name, email, body = forms.CharField(widget=SummernoteWidget())
-'''
