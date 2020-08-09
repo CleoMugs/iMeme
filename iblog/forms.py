@@ -10,14 +10,11 @@ class CreateUserForm(UserCreationForm):
 		fields = ['username', 'email', 'password1', 'password2']
 
 
-
 class UserLoginForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
 	class Meta:
 		model = User
 		fields = ['username', 'password']
-
-
 
 
 class CommentForm(forms.ModelForm):
