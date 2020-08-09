@@ -61,6 +61,7 @@ def login_user(request):
 	context = {}
 	return render(request, template_name, context)
 
+
 '''
 @unauthenticated_user
 def login_user(request):
