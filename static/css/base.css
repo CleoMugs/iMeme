@@ -28,17 +28,17 @@ body {
 
 .content-section  {
     background: #ffffff;
-    padding: auto;
+    padding: 4px;
     border: 2px solid #dddddd;
     border-radius: 15px;
-    margin: auto;
+    margin: 4rem auto;
     width: 70%;
        
 }
 
 #messages {
-    background-color: rgb(255, 255, 255);
-    color: #fff;
+    background-color: rgb(17, 71, 17);
+    color: #008000;
     padding: 0;
     margin-top: 3px;
     text-align: center;

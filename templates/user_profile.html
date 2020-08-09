@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
 {% block content %}
-	<div class="content-section">
+
+	<div class="content-section mt-5">
 		<div class="media">
 			<img class="rounded-circle account-img" class="img-fluid"  alt="Responsive Image" width="15%" height="15%" src="{{ request.user.profile.profile_pic.url }}">
 		</div>
@@ -51,7 +50,7 @@
 				
 				{% if request.user.is_authenticated %}
 					<div class="form-group">
-						<a class="btn btn-outline-info mt-3 p-2" href="{% url 'edit_profile' %}">Edit Profile</a>
+						<a class="btn btn-outline-info btn-lg mt-3" href="{% url 'edit_profile' %}">Edit Profile</a>
 					</div>
 				{% endif %}
 		</div>
