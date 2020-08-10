@@ -103,8 +103,9 @@ def logout_user(request):
 
 
 class PostList(generic.ListView):
-	queryset = Post.objects.filter(status=1).order_by('-created_on')
 	template_name = 'index.html'
+	queryset = Post.objects.filter(status=1).order_by('-created_on') 
+	context_object_name = 'posts'
 	paginate_by = 2
 
 class PostDetail(generic.DetailView):

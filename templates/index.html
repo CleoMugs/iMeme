@@ -17,7 +17,7 @@
     }
 </style-->
 
-<header class="masthead">
+<!--header class="masthead">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -30,21 +30,33 @@
             </div>
         </div>
     </div>
-</header>
+</header-->
+<style>
+    .card {
+        border-radius: 30px;
+        border: 1px solid #dddddd;
+        padding: 0;
+
+    }
+    
+</style>
 
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
-        <div class="col-md-8 mt-3 left">
-            {% for post in post_list %}
+        <div class="col">
+            <div class="form-group mt-4">
+                <a href="#" class="btn btn-primary btn-lg btn-block" type="submit">Create Post</a>
+            </div>
+            {% for post in posts %}
             <div class="card mb-4">
                 <div class="card-body">
                     <a href="{% url 'user_profile' %}">
                         <img class="rounded-circle profile-thumbnail" class="img-fluid"  alt="Responsive Image" 
-                        width="20%" height="20%" src="{{ post.author.profile.profile_pic.url }}">
+                        width="15%" height="15%" src="{{ post.author.profile.profile_pic.url }}">
                     </a>
                     
-                    <h2 class="card-title">{{ post.title }}</h2>
+                    <h3 class="card-title">{{ post.title }}</h3>
                     <p class="card-text text-muted h6"><a href="{% url 'user_profile' %}">@{{ post.author }}</a> | {{ post.created_on}} </p>
                     
                     <p class="card-text">{{ post.content|slice:":100"|safe }}</p>
@@ -54,7 +66,6 @@
             </div>
             {% endfor %}
         </div>
-        {% include 'sidebar.html' %} 
     </div>
 </div>
 
