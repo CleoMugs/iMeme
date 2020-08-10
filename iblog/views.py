@@ -13,6 +13,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.utils.http import is_safe_url
 from django.contrib.auth.decorators import login_required
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .decorators import unauthenticated_user
 
 @unauthenticated_user
@@ -112,7 +114,7 @@ class PostDetail(generic.DetailView):
 	model = Post
 	template_name = 'post_detail.html'
 
-class PostCreate(generic.CreateView):
+class PostCreate(LoginRequiredMixin, generic.CreateView):
 	model = Post
 	template_name = 'post_form.html'
 	fields = ['title', 'content', 'slug', 'status']
