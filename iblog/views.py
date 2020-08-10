@@ -118,6 +118,7 @@ class PostCreate(LoginRequiredMixin, generic.CreateView):
 	model = Post
 	template_name = 'post_form.html'
 	fields = ['title', 'content', 'slug', 'status']
+	success_url = '/'
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user
