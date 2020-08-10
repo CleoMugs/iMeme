@@ -46,7 +46,7 @@
         <!-- Blog Entries Column -->
         <div class="col">
             <div class="form-group mt-4">
-                <a href="#" class="btn btn-primary btn-lg btn-block" type="submit">Create Post</a>
+                <a href="{% url 'post_create' %}" class="btn btn-primary btn-lg btn-block" type="submit">Create Post</a>
             </div>
             {% for post in posts %}
             <div class="card mb-4">

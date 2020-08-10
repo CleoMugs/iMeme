@@ -115,7 +115,11 @@ class PostDetail(generic.DetailView):
 class PostCreate(generic.CreateView):
 	model = Post
 	template_name = 'post_form.html'
-	fields = ['title', 'content', 'status']
+	fields = ['title', 'content', 'slug', 'status']
+
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
 
 
 def user_profile(request):

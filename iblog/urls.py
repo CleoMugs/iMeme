@@ -17,7 +17,7 @@ handler404 = 'iblog.views.error_404_view'
 
 urlpatterns =[
 	path('', views.PostList.as_view(), name='home'),
-    path('post/new/', views.PostCreate.as_view(), name='post-create'),
+    path('post/new/', views.PostCreate.as_view(), name='post_create'),
 	path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
 	path("feed/rss", LatestPostsFeed(), name="post_feed"),
 	#path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
