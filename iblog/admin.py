@@ -23,8 +23,13 @@ class CommentAdmin(admin.ModelAdmin):
 class ProfileAdmin(admin.ModelAdmin):
 	list_display = ('user', 'real_name', 'profile_pic', 'location', 'occupation', 'date_created')
 	search_fields = ('user',)
+
+class LikeAdmin(admin.ModelAdmin):
+	list_display = ('user', 'post', 'liked_on')
+	search_fields = ('user',)
 	
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Profile, ProfileAdmin)
+admin.site.register(Like, LikeAdmin)
