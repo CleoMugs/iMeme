@@ -12,9 +12,6 @@ sitemaps = {
 }
 
 handler404 = 'iblog.views.error_404_view'
-#handler500 = 'iblog.views.error_500_view'
-#handler500 = 'iblog.views.custom_500'
-
 urlpatterns =[
 	path('', views.PostList.as_view(), name='home'),
     path('post/new/', views.PostCreate.as_view(), name='post_create'),

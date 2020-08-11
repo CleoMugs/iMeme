@@ -186,6 +186,17 @@ def post_detail(request, slug):
 	context = {'post':post, 'comments':comments, 'new_comment':new_comment, 'comment_form':comment_form}
 	return render(request, template_name, context)	
 
+
+def like(request, post_id):
+	new_like, liked_on = Like.objects.get_or_create(user=request.user, post_id=post_id)
+
+	if not liked_on:
+		p = Post.objects.get(...)
+		number_of_likes = p.like_set.all().count()
+	else:
+		pass
+
+
 def error_404_view(request, exception):
 	template_name = '404.html'
 	return render(request, template_name, status=404)

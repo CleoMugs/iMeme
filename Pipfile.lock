@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d03a1f76c9e60c11af8db3c06b294203b636b3c61ee3b4805c759da4cc973471"
+            "sha256": "5900b503be145e7259b761339520e12e7b0dd9489b6599a419a41876508f3bc9"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -103,12 +103,27 @@
             "git": "https://github.com/ubernostrum/django-registration.git",
             "ref": "40fee813ca444236da6d66f516b869fd8ebbe9cd"
         },
+        "django-rest": {
+            "hashes": [
+                "sha256:94e0ef7794e1b23ab4dacbce4e210d1f24a2e7542a22921e4ed4bfc378f0dc5d"
+            ],
+            "index": "pypi",
+            "version": "==0.8.6"
+        },
         "django-summernote": {
             "hashes": [
                 "sha256:c23dae35c287f0d3d1ff801654ace77c3c6836453162e87c7330710d74d2eb88"
             ],
             "index": "pypi",
             "version": "==0.8.11.6"
+        },
+        "djangorestframework": {
+            "hashes": [
+                "sha256:6dd02d5a4bd2516fb93f80360673bf540c3b6641fec8766b1da2870a5aa00b32",
+                "sha256:8b1ac62c581dbc5799b03e535854b92fc4053ecfe74bad3f9c05782063d4196b"
+            ],
+            "index": "pypi",
+            "version": "==3.11.1"
         },
         "idna": {
             "hashes": [

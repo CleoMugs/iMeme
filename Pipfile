@@ -14,6 +14,8 @@ pillow = "*"
 django-registration = {git = "https://github.com/ubernostrum/django-registration.git"}
 django-allauth = "*"
 contrib = "*"
+djangorestframework = "*"
+django-rest = "*"
 
 [requires]
 python_version = "3.6"
