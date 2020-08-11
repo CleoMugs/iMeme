@@ -4,9 +4,9 @@ from iblog.api.views import (LikeViewSet,
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register(r'LIKES', RoleViewSet)
-router.register(r'PROFILES', ProfileViewSet)
-router.register(r'POSTS', PostViewSet)
-router.register(r'COMMENTS', CommentViewSet)
+router.register(r'LIKE', LikeViewSet)
+router.register(r'PROFILE', ProfileViewSet)
+router.register(r'POST', PostViewSet)
+router.register(r'COMMENT', CommentViewSet)
 
 urlpatterns = router.urls
