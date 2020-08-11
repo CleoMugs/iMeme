@@ -48,12 +48,12 @@ class Comment(models.Model):
 
 
 class Like(models.Model):
-	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+	user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 	post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
 	liked_on = models.DateTimeField(auto_now_add=True, null=True)
 
 	def __str__(self):
-		return self.id
+		return f'{self.id}'
 
 
 class Profile(models.Model):
