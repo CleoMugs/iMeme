@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
-
-
 {% block content %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
 	<div class="content-section mt-5">
 		<div class="">
 			<h3 class="border-bottom"><b>Edit Your Profile</b></h3>
