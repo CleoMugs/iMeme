@@ -1,5 +1,5 @@
-from iblog.api.views import (LikeViewSet,  
-	PostViewSet, CommentViewSet, ProfileViewSet 
+from iblog.api.views import (PostViewSet, CommentViewSet,
+ 							 ProfileViewSet, LikeViewSet 
 )
 from rest_framework.routers import DefaultRouter
 

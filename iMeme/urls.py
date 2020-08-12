@@ -22,13 +22,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('iblog.urls')),
     path('summernote/', include('django_summernote.urls')),
-    path('api-auth/', include('rest_framework.urls')), #api
-    path('api/', include('iblog.api.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('iblog.api.urls'))
 ]
 
 
-#if settings.DEBUG:
-#	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -30,7 +30,8 @@ def register(request):
 			messages.success(request, f'Account created for {username}!')
 			return redirect('login_user')
 
-	context = {'form': form}
+	title='signup'
+	context = {'form': form, 'title':title}
 	return render(request, template_name, context)
 
 
@@ -59,8 +60,8 @@ def login_user(request):
 			messages.info(request, f'Username OR Password is incorrect')
 			return redirect('login_user')
 			return render(request, 'login.html')
-
-	context = {}
+	title = 'login'
+	context = {'title':title}
 	return render(request, template_name, context)
 
 
