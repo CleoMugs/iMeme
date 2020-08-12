@@ -27,11 +27,11 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-
-        <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+        {% block styles %}
+            <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+        {% endblock %}
+        
     </head>
 
     <body>

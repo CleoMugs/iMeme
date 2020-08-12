@@ -1,6 +1,11 @@
 {% extends "base.html" %} 
 {% load static %}
 {% block content %}
+
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
 <!--style>
     body {
         font-family: "Roboto", sans-serif;
