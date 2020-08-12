@@ -161,7 +161,7 @@ def edit_profile(request):
 
 
 
-def post_detail(request, slug):
+def post_detail(request,slug):
 	template_name = 'post_detail.html'
 	post = get_object_or_404(Post, slug=slug)
 	comments = post.comments.filter(active=True)
@@ -179,10 +179,8 @@ def post_detail(request, slug):
 			# Save the comment to the database
 			new_comment.save()
 
-
 	else:
 		comment_form = CommentForm()
-
 
 	context = {'post':post, 'comments':comments, 'new_comment':new_comment, 'comment_form':comment_form}
 	return render(request, template_name, context)	

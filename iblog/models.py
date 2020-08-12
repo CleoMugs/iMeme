@@ -27,10 +27,16 @@ class Post(models.Model):
 		return self.title
 
 	def get_absolute_url(self):
-		kwargs = {'slug': self.slug, 'pk':self.id}
+		kwargs = {'slug': self.slug} #, 'pk':self.id}
 
-		return reverse("post-pk-slug-detail", kwargs=kwargs)
+		return reverse("post_detail", kwargs=kwargs)
 
+	'''
+	def save(self, *args, **kwargs):
+		value = self.title
+		self.slug = slugify(value, allow_unicode=True)
+		super().save(*args, **kwargs)
+	'''
 
 
 class Comment(models.Model):
@@ -47,6 +53,9 @@ class Comment(models.Model):
 
 	def __str__(self):
 		return 'Comment {self.body} by {self.name}'
+
+	def snippet(self):
+		return self.body[:50]
 
 
 class Like(models.Model):

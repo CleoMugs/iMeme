@@ -46,8 +46,8 @@ urlpatterns =[
     		template_name='password_reset_complete.html'), 
     	name="password_reset_complete"),
 
-    #path('<slug:slug>/', views.post_detail, name='post_detail'),
-    path('blog/<int:pk>-<slug:slug>/', views.post_detail, name='post_detail'),
+    path('<slug:slug>/', views.post_detail, name='post_detail'),
+    #path('blog/<int:pk>-<slug:slug>/', views.post_detail, name='post_detail'),
 
     #path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
 	
