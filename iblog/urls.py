@@ -19,8 +19,6 @@ urlpatterns =[
 	path("feed/rss", LatestPostsFeed(), name="post_feed"),
 	
 
-   
-
 	path('register/', views.register, name='register_user'),
     path('login/', views.login_user, name='login_user'),
     path('logout/', views.logout_user, name='logout_user'),
@@ -48,7 +46,8 @@ urlpatterns =[
     		template_name='password_reset_complete.html'), 
     	name="password_reset_complete"),
 
-     path('<slug:slug>/', views.post_detail, name='post_detail'),
+    #path('<slug:slug>/', views.post_detail, name='post_detail'),
+    path('blog/<int:pk>-<slug:slug>/', views.post_detail, name='post_detail'),
 
     #path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
 	

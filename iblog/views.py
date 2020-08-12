@@ -113,6 +113,7 @@ class PostList(generic.ListView):
 class PostDetail(generic.DetailView):
 	model = Post
 	template_name = 'post_detail.html'
+	query_pk_and_slug = True
 
 class PostCreate(LoginRequiredMixin, generic.CreateView):
 	model = Post
