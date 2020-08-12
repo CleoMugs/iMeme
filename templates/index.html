@@ -59,15 +59,15 @@
                     <p class="card-text text-muted h6"><a href="{% url 'user_profile' %}">@{{ post.author }}</a> | {{ post.created_on}} </p>
                     <h4 class="card-title"><strong>{{ post.title }}</strong> </h4>
                     
+                    
+                    <p class="card-text">{{ post.content|safe|truncatewords_html:30|linebreaks }}</p>
 
-                    
-                    <p class="card-text">{{ post.content|slice:":100"|safe }}</p>
-                    
+                    <a href="{{  post.get_absolute_url }}" {{ post.title }} class="btn btn-primary mt-0 ml-0 p-0">Read More &rarr;</a>
+
                     <!--a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a-->
 
                     <hr style="width:100%;text-align:left;margin-left:0;">
-                    <a href="{{  post.get_absolute_url }}" {{ post.title }} class="btn btn-primary mt-0 ml-1 p-0">Read More &rarr;</a>
-
+                    
                    
                     <a href="{{  post.get_absolute_url }}" {{ post.title }} class="btn btn-primary ml-1 p-0 mr-1">{{post.comments.count}}Comments</a><strong></strong>
 

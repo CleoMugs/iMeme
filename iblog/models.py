@@ -55,7 +55,7 @@ class Comment(models.Model):
 		return 'Comment {self.body} by {self.name}'
 
 	def snippet(self):
-		return self.body[:50]
+		return self.body[:100] + "..."
 
 
 class Like(models.Model):
