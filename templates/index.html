@@ -60,7 +60,7 @@
                     <h4 class="card-title"><strong>{{ post.title }}</strong> </h4>
                     
                     
-                    <p class="card-text">{{ post.content|safe|truncatewords_html:30|linebreaks }}</p>
+                    <p class="card-text mb-0 p-0">{{ post.content|safe|truncatewords_html:30|linebreaks }}</p>
 
                     <a href="{{  post.get_absolute_url }}" {{ post.title }} class="btn btn-primary mt-0 ml-0 p-0">Read More &rarr;</a>
 

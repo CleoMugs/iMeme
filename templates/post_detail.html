@@ -27,14 +27,15 @@
               <p>
                 <a href="{% url 'user_profile' %}">
                   <img class="rounded-circle profile-thumbnail" class="img-fluid"  alt="Responsive Image" 
-                  width="20%" height="20%" src="{{ post.author.profile.profile_pic.url }}">
+                  width="15%" height="15%" src="{{ post.author.profile.profile_pic.url }}">
                 </a>
                 <a href="{% url 'user_profile' %}">@{{ comment.name }}</a> |
                 <span class="text-muted font-weight-normal">
                   {{ comment.created_on }}
                 </span>
               </p>
-              {{ comment.snippet | linebreaks }}
+              {{ comment.body|safe|truncatewords_html:30|linebreaks }}
+              <a href="#" class="btn btn-primary">Read More &rarr;</a>
             </div>
           {% endfor %}
       </div>
