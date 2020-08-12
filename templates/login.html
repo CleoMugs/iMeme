@@ -1,7 +1,9 @@
-
 {% extends "base.html" %} 
 {% load static %}
 {% block content %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
 
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
