@@ -121,10 +121,18 @@ class PostCreate(LoginRequiredMixin, generic.CreateView):
 	template_name = 'post_form.html'
 	fields = ['title', 'content', 'slug', 'status']
 	success_url = '/'
+	login_url = '/login/'
+	redirect_field_name = '/post/new/'
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user
 		return super().form_valid(form)
+
+	'''
+	def unauthorized_users(self, request):
+		if not request.user.is_authenticated:
+			return redirect('login_user')
+	'''
 
 
 def user_profile(request):
