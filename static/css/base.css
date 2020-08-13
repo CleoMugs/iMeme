@@ -29,8 +29,8 @@ body {
 .content-section  {
     background: #ffffff;
     padding: 4px;
-    border: 2px solid #dddddd;
-    border-radius: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 25px;
     margin: 4rem auto;
     width: 70%;
        
