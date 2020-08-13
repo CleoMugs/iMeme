@@ -60,6 +60,7 @@ def login_user(request):
 			messages.info(request, f'Username OR Password is incorrect')
 			return redirect('login_user')
 			return render(request, 'login.html')
+
 	title = 'login'
 	context = {'title':title}
 	return render(request, template_name, context)
@@ -123,16 +124,15 @@ class PostCreate(LoginRequiredMixin, generic.CreateView):
 	success_url = '/'
 	login_url = '/login/'
 	redirect_field_name = '/post/new/'
+	#success_message = ''
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user
 		return super().form_valid(form)
 
-	'''
-	def unauthorized_users(self, request):
-		if not request.user.is_authenticated:
-			return redirect('login_user')
-	'''
+	def get_success_url(self):
+		return force_text(self.request.GET.get('next', self.success_url))
+
 
 
 def user_profile(request):
