@@ -1,4 +1,6 @@
 {% extends "base.html" %} 
+{% load socialaccount %}
+{% providers_media_js %}
 {% load static %}
 {% block content %}
 {% block styles %}
@@ -41,6 +43,11 @@
 				</div>
 		
 				<div class="mt-4">
+
+					<div class="d-flex justify-content-center links"> 
+						<a href="{% provider_login_url "google"  %}" class="ml-2">Login With Google</a>
+				 	</div>
+				 	
 					<div class="d-flex justify-content-center links">
 						<small class="text-muted">		
 							Don't have an account? <a style="color:white;" href="{% url 'register_user' %}" class="ml-2"><strong> Register Now</strong></a>	
