@@ -16,6 +16,8 @@ django-allauth = "*"
 contrib = "*"
 djangorestframework = "*"
 django-rest = "*"
+python-dotenv = "*"
+django-environ = "*"
 
 [requires]
 python_version = "3.6"
