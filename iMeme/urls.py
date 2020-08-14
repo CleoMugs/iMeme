@@ -20,14 +20,14 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='index.html')),
+    #path('', TemplateView.as_view(template_name='index.html')), # revisit
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
 
     path('', include('iblog.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/', include('iblog.api.urls'))
+    path('api/', include('iblog.api.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 

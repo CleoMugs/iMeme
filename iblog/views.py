@@ -130,9 +130,10 @@ class PostCreate(LoginRequiredMixin, generic.CreateView):
 		form.instance.author = self.request.user
 		return super().form_valid(form)
 
+	'''
 	def get_success_url(self):
 		return force_text(self.request.GET.get('next', self.success_url))
-
+	'''
 
 
 def user_profile(request):
