@@ -15,6 +15,8 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.http import HttpResponseRedirect
+
 from .decorators import unauthenticated_user
 
 @unauthenticated_user
@@ -189,6 +191,7 @@ def post_detail(request,slug):
 			new_comment.post = post
 			# Save the comment to the database
 			new_comment.save()
+			return HttpResponseRedirect(request.path_info)
 
 	else:
 		comment_form = CommentForm()
