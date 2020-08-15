@@ -31,8 +31,11 @@
               <p>
                 <a href="{% url 'user_profile' %}">
                   <img class="rounded-circle profile-thumbnail" class="img-fluid"  alt="Responsive Image" 
-                  width="15%" height="15%" src="{{ post.author.profile.profile_pic.url }}">
+                  width="15%" height="15%" src="{{ post.author.profile.profile_pic.url }}" onerror="this.onerror=null; this.src='/static/img/default.jpg'">
                 </a>
+
+                <!--img class="avatar" src="/static/img/one.jpg" alt="Not Found" onerror="this.onerror=null; this.src='img/default.jpg'"-->
+
                 <a href="{% url 'user_profile' %}">@{{ comment.name }}</a> |
                 <span class="text-muted font-weight-normal">
                   {{ comment.created_on }}
