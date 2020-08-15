@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 {% load static %}
 {% load crispy_forms_tags %}
+{% load avatar_tags %}
 {% block content %}
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -12,7 +13,7 @@
             <div class="card-body">
               <a href="{% url 'user_profile' %}">
                 <img class="rounded-circle profile-thumbnail" class="img-fluid"  alt="Responsive Image" 
-                width="15%" height="15%" src="{{ post.author.profile.profile_pic.url }}">
+                width="15%" height="15%" src="{{ post.author.profile.profile_pic.url }}" onerror="this.onerror=null; this.src='/static/img/default.jpg'">
               </a>
               <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
               <p class=" text-muted"><a href="{% url 'user_profile' %}">@{{ post.author }}</a> | {{ post.created_on }}</p>
@@ -32,7 +33,9 @@
                 <a href="{% url 'user_profile' %}">
                   <img class="rounded-circle profile-thumbnail" class="img-fluid"  alt="Responsive Image" 
                   width="15%" height="15%" src="{{ post.author.profile.profile_pic.url }}" onerror="this.onerror=null; this.src='/static/img/default.jpg'">
+
                 </a>
+                <!--img {% avatar user 65 class="img-circle img-responsive" id="user_avatar" %}-->
 
                 <!--img class="avatar" src="/static/img/one.jpg" alt="Not Found" onerror="this.onerror=null; this.src='img/default.jpg'"-->
 

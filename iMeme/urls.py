@@ -13,6 +13,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('iblog.api.urls')),
     path('accounts/', include('allauth.urls')),
+    path('avatar/', include('avatar.urls')),
 ]
 
 

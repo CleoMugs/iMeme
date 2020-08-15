@@ -18,6 +18,7 @@ djangorestframework = "*"
 django-rest = "*"
 python-dotenv = "*"
 django-environ = "*"
+django-avatar = "*"
 
 [requires]
 python_version = "3.6"
