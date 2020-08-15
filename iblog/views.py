@@ -68,6 +68,39 @@ def login_user(request):
 	return render(request, template_name, context)
 
 
+'''
+@unauthenticated_user
+def login_user(request):
+	template_name = 'login.html'
+	form = UserLoModuleNotFoundError: No module named 'general'
+ginForm()
+
+	if request.method == 'POST':
+		form = UserLoginForm(request.POST)
+
+		if form.is_valid():
+			username = form.cleaned_data.get('username')
+			password = form.cleaned_data.get('password')
+
+			#username = request.POST.get('username')
+			#password = request.POST.get('password')
+			print('stage1')
+			user = authenticate(request, username=username, password=password)
+
+			if user is not None:
+				login(request, user)
+				print('stage2')
+				return redirect('home')
+
+
+			else:
+				messages.info(request, f'Username OR Password is incorrect') 	
+				return render(request, 'login.html')
+
+	context = {'form':form}
+	return render(request, template_name, context)
+'''
+
 
 #@login_required(login_url='login_user')
 def logout_user(request):
