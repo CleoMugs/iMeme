@@ -45,7 +45,7 @@ class Comment(models.Model):
 	email = models.EmailField()
 	body = models.TextField()
 	created_on = models.DateTimeField(auto_now_add=True)
-	active = models.BooleanField(default=False)
+	active = models.BooleanField(default=True)
 
 
 	class Meta:
@@ -70,7 +70,7 @@ class Like(models.Model):
 class Profile(models.Model):
 	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 	real_name =  models.CharField(max_length=200, null=True, blank=True)
-	profile_pic = models.ImageField(default="default.png", upload_to='images')
+	profile_pic = models.ImageField(default="default.jpg", upload_to='images')
 	location =  models.CharField(max_length=200, null=True, blank=True)
 	occupation =  models.CharField(max_length=200, null=True, blank=True)
 	date_created = models.DateTimeField(auto_now_add=True, null=True)
