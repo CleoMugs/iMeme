@@ -6,13 +6,13 @@
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
 {% endblock %}
 
-    <div class="container mt-5" style="border:1px solid #cecece; border-radius: 25px;">
+    <div class="container mt-4" style="border:1px solid #cecece; border-radius: 15px;">
         <div class="row">
             <div class="col">
                 <form method="POST">
                     {% csrf_token %}
                     <fieldset class="form-group">
-                        <legend class="border-bottom mb-2">Blog Post</legend>
+                        <legend class="border-bottom mb-1">Blog Post</legend>
                         {{ form|crispy }}
                     </fieldset>
                     <div class="form-group">
@@ -22,5 +22,6 @@
             </div>
         </div>
     </div>
+    <script src="/static/js/slugify.js"></script>
 
 {% endblock content %}

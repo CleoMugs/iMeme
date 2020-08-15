@@ -108,7 +108,8 @@ def logout_user(request):
 
 class PostList(generic.ListView):
 	template_name = 'index.html'
-	queryset = Post.objects.filter(status=1).order_by('-created_on') 
+	#queryset = Post.objects.filter(status=1).order_by('-created_on') 
+	queryset = Post.objects.order_by('-created_on') 
 	context_object_name = 'posts' #revisit later
 	paginate_by = 2
 
@@ -120,7 +121,7 @@ class PostDetail(generic.DetailView):
 class PostCreate(LoginRequiredMixin, generic.CreateView):
 	model = Post
 	template_name = 'post_form.html'
-	fields = ['title', 'content', 'slug', 'status']
+	fields = ['title', 'content'] #, 'slug', 'status']
 	success_url = '/'
 	login_url = '/login/'
 	redirect_field_name = '/post/new/'
