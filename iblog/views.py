@@ -73,7 +73,7 @@ def register(request):
 				form.save()
 
 				email_subject = 'Activate Your Account'
-				email_body = ''
+				email_body = 'iMeme body'
 				email = EmailMessage(
 				    email_subject,
 				    email_body,
