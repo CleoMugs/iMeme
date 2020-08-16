@@ -6,6 +6,7 @@ from .feeds import LatestPostsFeed
 
 from django.conf.urls import (handler403, handler404, handler500)
 from . import views
+from .views import VerificationView
 
 sitemaps = {
 	"posts": PostSitemap,
@@ -20,6 +21,7 @@ urlpatterns =[
 	
 
 	path('register/', views.register, name='register_user'),
+    path('activate/<uidb64>/<token>', VerificationView.as_view(), name='activate'),
     path('login/', views.login_user, name='login_user'),
     path('logout/', views.logout_user, name='logout_user'),
 

@@ -7,6 +7,7 @@ from .forms import (CommentForm, UserProfileForm,
 					UserLoginForm
 	)
 from django.contrib.auth.models import User
+from django.views import View
 
 from django.contrib import messages
 
@@ -21,6 +22,11 @@ from django.http import HttpResponseRedirect
 from .decorators import unauthenticated_user
 
 from django.core.mail import EmailMessage
+
+from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+
 '''
 @unauthenticated_user
 def register(request):
@@ -76,7 +82,14 @@ def register(request):
 				# checking if user is active
 				user =  User.objects.create_user(username=username, email=email, password=password)
 				user.is_active = False
+				user.save()
 				#form.save()
+
+				# path_to_view
+				# getting domain we are on
+				# relative url to verification
+				# encode uid
+				# tokenize uid
 
 				email_subject = 'Activate Your Account'
 				email_body = 'iMeme body'
@@ -101,6 +114,9 @@ def register(request):
 	context = {'form': form, 'title':title}
 	return render(request, template_name, context)
 
+class VerificationView(View):
+	def get(self, request, uidb64, token):
+		return redirect('login_user')
 
 @unauthenticated_user
 def login_user(request):
