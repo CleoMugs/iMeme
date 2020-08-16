@@ -92,13 +92,13 @@ def register(request):
 				# relative url to verification
 				# encode uid
 				# tokenize uid
-				uidb64 = force_bytes(urlsafe_base64_encode(user.pk))
+				uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
 
 				domain = get_current_site(request).domain
 				link = reverse('activate', kwargs={'uidb64':uidb64, 'token':token_generator.make_token(user)} )
 
 				activate_url = 'http://' + domain + link.lstrip('/')
-				
+
 				email_subject = 'Activate Your Account'
 				email_body = 'Hi '+user.username + 'Please click on the link below to activate your account \n'+activate_url
 				email = EmailMessage(
@@ -124,7 +124,22 @@ def register(request):
 
 class VerificationView(View):
 	def get(self, request, uidb64, token):
+
+		try:	
+			id = force_text(urlsafe_base64_decode(uidb64))
+			user = User.objects.get()
+		except Exception as ex:
+			pass
+
 		return redirect('login_user')
+
+
+class LoginView(View):
+	template_name = 'login.html'
+    def get(self, request):
+        return render (request, 'login.html')
+
+
 
 @unauthenticated_user
 def login_user(request):

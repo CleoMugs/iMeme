@@ -19,6 +19,7 @@ django-rest = "*"
 python-dotenv = "*"
 django-environ = "*"
 django-avatar = "*"
+django-extensions = "*"
 
 [requires]
 python_version = "3.6"
