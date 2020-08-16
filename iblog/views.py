@@ -8,6 +8,7 @@ from .forms import (CommentForm, UserProfileForm,
 	)
 from django.contrib.auth.models import User
 from django.views import View
+from django.urls import reverse
 
 from django.contrib import messages
 
@@ -26,6 +27,7 @@ from django.core.mail import EmailMessage
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from .utils import token_generator
 
 '''
 @unauthenticated_user
@@ -90,9 +92,15 @@ def register(request):
 				# relative url to verification
 				# encode uid
 				# tokenize uid
+				uidb64 = force_bytes(urlsafe_base64_encode(user.pk))
 
+				domain = get_current_site(request).domain
+				link = reverse('activate', kwargs={'uidb64':uidb64, 'token':token_generator.make_token(user)} )
+
+				activate_url = 'http://' + domain + link.lstrip('/')
+				
 				email_subject = 'Activate Your Account'
-				email_body = 'iMeme body'
+				email_body = 'Hi '+user.username + 'Please click on the link below to activate your account \n'+activate_url
 				email = EmailMessage(
 				    email_subject,
 				    email_body,
