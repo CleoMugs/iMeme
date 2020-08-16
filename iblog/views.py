@@ -65,32 +65,37 @@ def register(request):
 		password = request.POST['password1'] 
 
 		if form.is_valid():
-			#if not User.objects.filter(email=email).exists:
-			#	print('Email is unique')
 
-			# checking if user is active
-			user =  User.objects.create_user(username=username, email=email, password=password)
-			user.is_active = False
-			#form.save()
+			if not User.objects.filter(email=email).exists():
+				print('Email is unique')
 
-			email_subject = 'Activate Your Account'
-			email_body = 'iMeme body'
-			email = EmailMessage(
-			    email_subject,
-			    email_body,
-			    'noreply@imeme.com',
-			    [email],
-			)
-			email.send(fail_silently=False)
+				#title='signup'
+				#context = {'form': form, 'title':title}
+				#return render(request, template_name, context)
 
-		
-			username = form.cleaned_data.get('username')
-			messages.success(request, f'Account created for {username}!')
-			return redirect('login_user')
+				# checking if user is active
+				user =  User.objects.create_user(username=username, email=email, password=password)
+				user.is_active = False
+				#form.save()
 
-			#else:
-			#	messages.warning(request, f'Email is already taken. Please choose a different email.')
-			#	return redirect('register_user')
+				email_subject = 'Activate Your Account'
+				email_body = 'iMeme body'
+				email = EmailMessage(
+				    email_subject,
+				    email_body,
+				    'noreply@imeme.com',
+				    [email],
+				)
+				email.send(fail_silently=False)
+
+			
+				username = form.cleaned_data.get('username')
+				messages.success(request, f'Account created successfully for {username}!')
+				return redirect('login_user')
+
+			else:
+				messages.warning(request, f'Email is already taken. Please choose a different email.')
+				return redirect('register_user')
 
 	title='signup'
 	context = {'form': form, 'title':title}
