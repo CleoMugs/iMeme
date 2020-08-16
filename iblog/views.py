@@ -6,6 +6,7 @@ from .forms import (CommentForm, UserProfileForm,
 					EditProfileForm, CreateUserForm,
 					UserLoginForm
 	)
+from django.contrib.auth.models import User
 
 from django.contrib import messages
 
@@ -28,9 +29,9 @@ def register(request):
 		form = CreateUserForm(request.POST)
 
 		# Get details
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password1'] 
+		username = request.POST['username']
+		email = request.POST['email']
+		password = request.POST['password1'] 
 
 		if form.is_valid():
 			if not User.objects.filter(email=email).exists:
@@ -40,7 +41,8 @@ def register(request):
 				messages.success(request, f'Account created for {username}!')
 				return redirect('login_user')
 			else:
-				print('Email is already taken. Please choose a different email.')
+				messages.warning(request, f'Email is already taken. Please choose a different email.')
+				return redirect('register_user')
 
 	title='signup'
 	context = {'form': form, 'title':title}
