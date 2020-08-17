@@ -29,35 +29,6 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from .utils import token_generator
 
-'''
-@unauthenticated_user
-def register(request):
-	template_name = 'register.html'
-	form = CreateUserForm()
-
-	if request.method == 'POST':
-		form = CreateUserForm(request.POST)
-
-		# Get details
-		username = request.POST['username']
-		email = request.POST['email']
-		password = request.POST['password1'] 
-
-		if form.is_valid():
-			if not User.objects.filter(email=email).exists:
-				print('Email is unique')
-				form.save()
-				username = form.cleaned_data.get('username')
-				messages.success(request, f'Account created for {username}!')
-				return redirect('login_user')
-			else:
-				messages.warning(request, f'Email is already taken. Please choose a different email.')
-				return redirect('register_user')
-
-	title='signup'
-	context = {'form': form, 'title':title}
-	return render(request, template_name, context)
-'''
 
 @unauthenticated_user
 def register(request):
@@ -339,5 +310,36 @@ ginForm()
 				return render(request, 'login.html')
 
 	context = {'form':form}
+	return render(request, template_name, context)
+'''
+
+
+'''
+@unauthenticated_user
+def register(request):
+	template_name = 'register.html'
+	form = CreateUserForm()
+
+	if request.method == 'POST':
+		form = CreateUserForm(request.POST)
+
+		# Get details
+		username = request.POST['username']
+		email = request.POST['email']
+		password = request.POST['password1'] 
+
+		if form.is_valid():
+			if not User.objects.filter(email=email).exists:
+				print('Email is unique')
+				form.save()
+				username = form.cleaned_data.get('username')
+				messages.success(request, f'Account created for {username}!')
+				return redirect('login_user')
+			else:
+				messages.warning(request, f'Email is already taken. Please choose a different email.')
+				return redirect('register_user')
+
+	title='signup'
+	context = {'form': form, 'title':title}
 	return render(request, template_name, context)
 '''
