@@ -20,8 +20,6 @@ python-dotenv = "*"
 django-environ = "*"
 django-avatar = "*"
 django-extensions = "*"
-django-secure = "*"
-django-sslserver = "*"
 six = "*"
 
 [requires]
