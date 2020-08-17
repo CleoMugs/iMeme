@@ -331,6 +331,7 @@ def register(request):
 		email = request.POST['email']
 		password = request.POST['password1'] 
 
+		
 		if form.is_valid():
 			if not User.objects.filter(email=email).exists:
 				print('Email is unique')
