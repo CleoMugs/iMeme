@@ -20,6 +20,8 @@ python-dotenv = "*"
 django-environ = "*"
 django-avatar = "*"
 django-extensions = "*"
+django-secure = "*"
+django-sslserver = "*"
 
 [requires]
 python_version = "3.6"
