@@ -22,6 +22,7 @@ django-avatar = "*"
 django-extensions = "*"
 django-secure = "*"
 django-sslserver = "*"
+six = "*"
 
 [requires]
 python_version = "3.6"

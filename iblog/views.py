@@ -29,7 +29,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from .utils import token_generator
 
-
+'''
 @unauthenticated_user
 def register(request):
 	template_name = 'register.html'
@@ -67,12 +67,14 @@ def register(request):
 				uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
 
 				domain = get_current_site(request).domain
-				link = reverse('activate', kwargs={'uidb64':uidb64, 'token':token_generator.make_token(user)})
+				link = reverse('activate', kwargs={
+							   'uidb64':uidb64, 
+							   'token':token_generator.make_token(user)})
 
-				activate_url = 'http://' + domain + link.lstrip('/')
+				activate_url = 'http://'+domain+link.lstrip('/')
 
 				email_subject = 'Activate Your Account'
-				email_body = 'Hi '+user.username + 'Please click on the link below to activate your account \n\n\n'+activate_url
+				email_body = 'Hi'+user.username + 'Please click on the link below to activate your account \n\n\n' + activate_url
 				email = EmailMessage(
 				    email_subject,
 				    email_body,
@@ -94,7 +96,7 @@ def register(request):
 	context = {'form': form, 'title':title}
 	return render(request, template_name, context)
 
-
+'''
 class VerificationView(View):
 	def get(self, request, uidb64, token):
 
@@ -316,7 +318,6 @@ ginForm()
 '''
 
 
-'''
 @unauthenticated_user
 def register(request):
 	template_name = 'register.html'
@@ -341,7 +342,5 @@ def register(request):
 				messages.warning(request, f'Email is already taken. Please choose a different email.')
 				return redirect('register_user')
 
-	title='signup'
-	context = {'form': form, 'title':title}
+	context = {'form': form}
 	return render(request, template_name, context)
-'''

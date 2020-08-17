@@ -15,16 +15,16 @@ sitemaps = {
 handler404 = 'iblog.views.error_404_view'
 
 urlpatterns =[
+
+    path('register/', views.register, name='register_user'),
+    path('login/', views.login_user, name='login_user'),
+    path('logout/', views.logout_user, name='logout_user'),
+
 	path('', views.PostList.as_view(), name='home'),
     path('post/new/', views.PostCreate.as_view(), name='post_create'),
 	path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
 	path("feed/rss", LatestPostsFeed(), name="post_feed"),
 	
-
-	path('register/', views.register, name='register_user'),
-    path('login/', views.login_user, name='login_user'),
-    path('logout/', views.logout_user, name='logout_user'),
-
     path('activate/<uidb64>/<token>', VerificationView.as_view(), name='activate'),
 
     path('user/', views.user_profile, name='user_profile'),
