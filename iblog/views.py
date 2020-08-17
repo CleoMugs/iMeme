@@ -63,6 +63,7 @@ def register(request):
 				# relative url to verification
 				# encode uid
 				# tokenize uid
+
 				uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
 
 				domain = get_current_site(request).domain
@@ -93,6 +94,7 @@ def register(request):
 	context = {'form': form, 'title':title}
 	return render(request, template_name, context)
 
+
 class VerificationView(View):
 	def get(self, request, uidb64, token):
 
@@ -117,13 +119,13 @@ class VerificationView(View):
 
 		return redirect('login_user')
 
-
+'''
 class LoginView(View):
 	template_name = 'login.html'
 	def get(self, request):
 		return render (request, 'login.html')
 
-
+'''
 
 @unauthenticated_user
 def login_user(request):
