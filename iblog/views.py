@@ -29,7 +29,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from .utils import token_generator
 
-'''
+
 @unauthenticated_user
 def register(request):
 	template_name = 'register.html'
@@ -96,7 +96,6 @@ def register(request):
 	context = {'form': form, 'title':title}
 	return render(request, template_name, context)
 
-'''
 
 class VerificationView(View):
 	def get(self, request, uidb64, token):
@@ -319,6 +318,7 @@ ginForm()
 '''
 
 
+'''
 @unauthenticated_user
 def register(request):
 	template_name = 'register.html'
@@ -346,3 +346,4 @@ def register(request):
 
 	context = {'form': form}
 	return render(request, template_name, context)
+'''
