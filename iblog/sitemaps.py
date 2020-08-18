@@ -7,7 +7,7 @@ class PostSitemap(Sitemap):
 	priority = 0.8
 
 	def items(self):
-		return Post.objects.filter(status=1)
+		return Post.objects.all()
 
 
 	def lastmod(self, obj):
