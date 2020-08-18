@@ -74,7 +74,7 @@ def register(request):
 				activate_url = 'http://'+domain+link.lstrip('/')
 
 				email_subject = 'Activate Your Account'
-				email_body = 'Hi'+user.username + 'Please click on the link below to activate your account \n\n\n' + activate_url
+				email_body = 'Hi'+ ' ' + user.username + ' ' +'Please click on the link below to activate your account \n\n\n' + activate_url
 				email = EmailMessage(
 				    email_subject,
 				    email_body,
