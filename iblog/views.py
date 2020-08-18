@@ -279,9 +279,6 @@ def error_500_view(request, exception):
 	template_name = '500.html'
 	return render(request, template_name, status=500)
 
-def custom_500(request):
-	template_name = '500.html'
-	return render(request, template_name, status=500)
 '''
 
 
