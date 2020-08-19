@@ -67,7 +67,7 @@ def register(request):
 							   'uidb64':uidb64, 
 							   'token':token_generator.make_token(user)})
 
-				activate_url = domain+link #.lstrip('/')
+				activate_url = 'http://' + domain+link #.lstrip('/')
 
 				email_subject = 'Activate Your Account'
 				email_body = 'Hi'+ ' ' + user.username + ' ' +'Please click on the link below to activate your account \n\n\n' + activate_url
@@ -82,7 +82,7 @@ def register(request):
 			
 				username = form.cleaned_data.get('username')
 				messages.success(request, f'Account created successfully for {username}!')
-				return redirect('login_user')
+				return redirect('confirm_email')
 
 			else:
 				messages.warning(request, f'Email is already taken. Please choose a different email.')
@@ -92,11 +92,6 @@ def register(request):
 	context = {'form': form, 'title':title}
 	return render(request, template_name, context)
 
-
-
-def email_confirm(request):
-    template_name = 'email_confirm.html'
-    return render (request, template_name)
 
 
 class VerificationView(View):
@@ -122,6 +117,11 @@ class VerificationView(View):
 			pass
 
 		return redirect('login_user')
+		
+
+def email_confirm(request):
+    template_name = 'email_confirm.html'
+    return render (request, template_name)
 
 
 class LoginView(View):
