@@ -93,6 +93,12 @@ def register(request):
 	return render(request, template_name, context)
 
 
+
+def email_confirm(request):
+    template_name = 'email_confirm.html'
+    return render (request, template_name)
+
+
 class VerificationView(View):
 	def get(self, request, uidb64, token):
 
