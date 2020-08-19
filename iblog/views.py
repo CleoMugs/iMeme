@@ -58,11 +58,6 @@ def register(request):
 				user.save()
 				#form.save()
 
-				# path_to_view
-				# getting domain we are on
-				# relative url to verification
-				# encode uid
-				# tokenize uid
 
 				uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
 
@@ -191,6 +186,12 @@ class PostCreate(LoginRequiredMixin, generic.CreateView):
 	def form_valid(self, form):
 		form.instance.author = self.request.user
 		return super().form_valid(form)
+
+	'''
+	def get_success_url(self):
+		return force_text(self.request.GET.get('next', self.success_url))
+	'''
+
 
 def user_profile(request):
 	template_name = 'user_profile.html'
