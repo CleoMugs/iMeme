@@ -24,16 +24,9 @@
 
     <div class="form-gap"></div>
     <div class="container">
-   
         <div class="row">
             <div class="col">
               <div class="user_card">
-                <div >
-                  <!-- Flash messsaging -->
-                  {% for message in messages %}
-                    <strong><p id="messages">{{message}}</p></strong>
-                  {% endfor %}
-                </div>
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <div class="text-center">
@@ -41,11 +34,10 @@
                       <h2 class="text-center">Your email needs to be confirmed</h2>
                       <p>We have sent a confirmation link to your email address: <strong>{{user.email}}</strong> <br> <hr> Please check to confirm.</p>
                       <!-- <div class="d-flex justify-content-center links"> <hr>
-                        Account Already Confirmed? <a href="{% url 'login' %}" class="ml-2"><strong>Login Now</strong></a>
+                        Account Already Confirmed? <a href="{% url 'login_user' %}" class="ml-2"><strong>Login Now</strong></a>
 					            </div> -->
                     </div>
                   </div>
-                </div>
                 </div>
               </div>
         </div>
