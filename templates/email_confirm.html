@@ -1,12 +1,11 @@
+{% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/confirm_email.css' %}">
+{% endblock %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Email</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/confirm_email.css' %}">
-</head>
 <body>
     <style>
         .form-gap {
@@ -30,7 +29,7 @@
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <div class="text-center">
-                      <h1><i class="far fa-envelope fa-2x"></i></h1>
+                      <h1><i class="fa fa-envelope fa-2x"></i></h1>
                       <h2 class="text-center">Your email needs to be confirmed</h2>
                       <p>We have sent a confirmation link to your email address: <strong>{{user.email}}</strong> <br> <hr> Please check to confirm.</p>
 
@@ -46,3 +45,4 @@
     </div>
 </body>
 </html>
+{% endblock %}
