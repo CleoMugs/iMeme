@@ -1,34 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
 {% block content %}
 {% block styles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/confirm_email.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 {% endblock %}
-
-<body>
-    <style>
-        .form-gap {
-        padding-top: 130px;
-    }
-    </style>
     
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://kit.fontawesome.com/599d5bdb6c.js" crossorigin="anonymous"></script>
-    
-     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
-     
-
-    <div class="form-gap"></div>
-    <div class="container">
+    <div class="container mt-5" style="border:2px solid #cecece; border-radius: 10px;">
         <div class="row">
             <div class="col">
-        
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <div class="text-center">
+                <div class="text-center">
+                  <div class="panel panel-default"> 
                       <h1><i class="fa fa-envelope fa-2x"></i></h1>
                       <h2 class="text-center">Your email needs to be confirmed</h2>
                       <p>We have sent a confirmation link to your email address: <strong>{{user.email}}</strong> <br> <hr> Please check to confirm.</p>
@@ -36,13 +17,9 @@
                       <div class="d-flex justify-content-center links"> <hr>
                         Account Already Confirmed? <a href="{% url 'login_user' %}" class="ml-2"><strong>Login Now</strong></a>
 					            </div>
-
                     </div>
-                  </div>
-                </div>
-             
+                </div>  
+              </div>      
         </div>
     </div>
-</body>
-</html>
 {% endblock %}
