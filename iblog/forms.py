@@ -35,14 +35,6 @@ class UserLoginForm(forms.ModelForm):
 		return username
 
 
-	def clean_password(self):
-		password = self.cleaned_data.get('password')
-
-		if not password:
-		    raise ValidationError("Please Enter Your Password ")
-
-		return password
-
 	'''
 
 class CommentForm(forms.ModelForm):
