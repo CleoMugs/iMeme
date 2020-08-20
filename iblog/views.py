@@ -157,7 +157,7 @@ def login_user(request):
 		else:
 			messages.info(request, f'Username OR Password is incorrect')
 			return redirect('login_user')
-			return render(request, 'login.html')
+			#return render(request, 'login.html')
 
 	title = 'login'
 	context = {'title':title}
