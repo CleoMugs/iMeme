@@ -104,7 +104,7 @@ class VerificationView(View):
 			user = User.objects.get(pk=id)
 
 			if not account_activation_token.check_token(user, token):
-				return redirect('login_user'+''+'message='+''+'User already activated')
+				return redirect('login_user'+'?message='+'User already activated')
 
 			if user.is_active:
 				return redirect('login_user')
@@ -123,13 +123,13 @@ class VerificationView(View):
 
 def email_confirm(request):
     template_name = 'email_confirm.html'
-    return render (request, template_name)
+    return render(request, template_name)
 
 
 class LoginView(View):
 	template_name = 'login.html'
 	def get(self, request):
-		return render (request, 'login.html')
+		return render(request, 'login.html')
 
 
 
