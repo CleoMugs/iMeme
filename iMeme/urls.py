@@ -13,7 +13,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('iblog.api.urls')),
-    path('avatar/', include('avatar.urls')),#path('', TemplateView.as_view(template_name='index.html')), # revisit
+    path('avatar/', include('avatar.urls')),
     #path('', TemplateView.as_view(template_name='index.html')), # revisit
 ]
 
