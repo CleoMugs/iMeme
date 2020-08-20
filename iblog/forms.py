@@ -22,20 +22,10 @@ class UserLoginForm(forms.ModelForm):
 	username = forms.CharField(min_length=4, max_length=150, widget=forms.TextInput(attrs={'placeholder':'Username...'}))
 	password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Confirm Password...'}))
 
-
 	class Meta:
 		model = User
 		fields = ['username', 'password']
-
-	'''
-	def clean_username(self):
-		username = self.cleaned_data['username'].lower()
-		if r.count():
-		    raise  ValidationError("Username already exists")
-		return username
-
-
-	'''
+		
 
 class CommentForm(forms.ModelForm):
 	class Meta:
