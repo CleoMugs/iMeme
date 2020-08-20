@@ -7,53 +7,50 @@
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
 {% endblock %}
 
-<div class="container mt-5" style="border:1px solid #cecece; border-radius: 25px;">
-      <div class="row">
-          <div class="col">
-            <div class="card-body">
+  <div class="container mt-5" style="border:1px solid #cecece; border-radius: 25px;">
+    <div class="row">
+        <div class="col">
+          <div class="card-body">
+            <a href="{% url 'user_profile' %}">
+              <img class="rounded-circle profile-thumbnail" class="img-fluid"  alt="Responsive Image" 
+              width="15%" height="15%" src="{{ post.author.profile.profile_pic.url }}" onerror="this.onerror=null; this.src='/static/img/default.jpg'">
+            </a>
+            <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+            <p class=" text-muted"><a href="{% url 'user_profile' %}">@{{ post.author }}</a> | {{ post.created_on }}</p>
+            <p class="card-text ">{{ post.content | safe }}</p>
+          </div>
+        </div>
+    </div>
+  </div>
+     
+
+  <div class="col card mb-4  mt-3">
+    <div class="card-body">
+      <h2>{{ comments.count }} comments</h2>
+        {% for comment in comments %}
+          <div class="comments" style="padding: 1px;">
+            <p>
               <a href="{% url 'user_profile' %}">
                 <img class="rounded-circle profile-thumbnail" class="img-fluid"  alt="Responsive Image" 
                 width="15%" height="15%" src="{{ post.author.profile.profile_pic.url }}" onerror="this.onerror=null; this.src='/static/img/default.jpg'">
+
               </a>
-              <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-              <p class=" text-muted"><a href="{% url 'user_profile' %}">@{{ post.author }}</a> | {{ post.created_on }}</p>
-              <p class="card-text ">{{ post.content | safe }}</p>
-            </div>
+              <!--img {% avatar user 65 class="img-circle img-responsive" id="user_avatar" %}-->
+
+              <!--img class="avatar" src="/static/img/one.jpg" alt="Not Found" onerror="this.onerror=null; this.src='img/default.jpg'"-->
+
+              <a href="{% url 'user_profile' %}">@{{ comment.name }}</a> |
+              <span class="text-muted font-weight-normal">
+                {{ comment.created_on }}
+              </span>
+            </p>
+            {{ comment.body|safe|truncatewords_html:30|linebreaks }}
+            <!--a href="#" class="btn btn-primary">Read More &rarr;</a-->
           </div>
-      </div>
-</div>
-     
-
-    <div class="col card mb-4  mt-3">
-      <div class="card-body">
-        <h2>{{ comments.count }} comments</h2>
-          {% for comment in comments %}
-            <div class="comments" style="padding: 1px;">
-              <p>
-                <a href="{% url 'user_profile' %}">
-                  <img class="rounded-circle profile-thumbnail" class="img-fluid"  alt="Responsive Image" 
-                  width="15%" height="15%" src="{{ post.author.profile.profile_pic.url }}" onerror="this.onerror=null; this.src='/static/img/default.jpg'">
-
-                </a>
-                <!--img {% avatar user 65 class="img-circle img-responsive" id="user_avatar" %}-->
-
-                <!--img class="avatar" src="/static/img/one.jpg" alt="Not Found" onerror="this.onerror=null; this.src='img/default.jpg'"-->
-
-                <a href="{% url 'user_profile' %}">@{{ comment.name }}</a> |
-                <span class="text-muted font-weight-normal">
-                  {{ comment.created_on }}
-                </span>
-              </p>
-
-
-              {{ comment.body|safe|truncatewords_html:30|linebreaks }}
-              <!--a href="#" class="btn btn-primary">Read More &rarr;</a-->
-            </div>
-            <hr>
-          {% endfor %}
-
-      </div>
+          <hr>
+        {% endfor %}
     </div>
+  </div>
 
     <div class="col card mb-4  mt-3">
       <div class="card-body">
@@ -71,6 +68,7 @@
         {% endif %}
       </div>
     </div>
+    
   </div>
 </div>
 {% endblock content %}
