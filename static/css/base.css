@@ -44,6 +44,14 @@ body {
     text-align: center;
 }
 
+#messages{
+    background-color: rgb(17, 71, 17);
+    color: #fff;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
 /**
 body {
     font-family: "Roboto", sans-serif;
