@@ -36,6 +36,15 @@ body {
        
 }
 
+
+#messages {
+    background-color: rgb(17, 71, 17);
+    color: #fff;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+/**
 #messages {
     background-color: white;
     color: rgb(17, 71, 17);
@@ -43,14 +52,7 @@ body {
     margin-top: 1px;
     text-align: center;
 }
-
-#messages{
-    background-color: rgb(17, 71, 17);
-    color: #fff;
-    padding: 5px;
-    margin-top: 10px;
-    text-align: center;
-}
+**/
 
 /**
 body {
