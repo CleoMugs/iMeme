@@ -98,7 +98,7 @@ def register(request):
 
 class VerificationView(View):
 	def get(self, request, uidb64, token):
-
+		'''
 		try:	
 			id = force_text(urlsafe_base64_decode(uidb64))
 			user = User.objects.get(pk=id)
@@ -120,10 +120,18 @@ class VerificationView(View):
 
 		except Exception as ex:
 			pass
+		'''
 
+		id = force_text(urlsafe_base64_decode(uidb64))
+		user = User.objects.get(pk=id)
+
+
+		user.is_active = True
+		user.save()
+
+		messages.success(request, 'Account activated successfully!')
 		return redirect('login_user')
 		
-
 
 class LoginView(View):
 	template_name = 'login.html'
