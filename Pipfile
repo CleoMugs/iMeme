@@ -21,6 +21,10 @@ django-environ = "*"
 django-avatar = "*"
 django-extensions = "*"
 six = "*"
+python-decouple = "*"
+dj-database-url = "*"
+unipath = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.6"
